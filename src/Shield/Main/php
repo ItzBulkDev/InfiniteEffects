@@ -1,0 +1,28 @@
+<?php
+
+namespace InfiniteEffects;
+
+use
+
+class Main extends PluginBase implements Listener {
+
+public function onEnable(){
+
+$this->getServer()->getPluginManager()->registerEvents($this, $this);
+$this->saveDefaultConfig();
+$config = $this->getConfig();
+$this->getServer()->getLogger()->info(TextFormat::BLUE."[InfiniteEffects] DeathHead has been enabled!");
+$this->getServer()->getLogger()->info(TextFormat::BLUE."[InfiniteEffects] Created by ItzBulkDev.");
+	}
+}
+	public function onDisable(){
+	$this->saveDefaultConfig();
+		$this->getLogger()->info(TextFormat::DARK_RED . "[InfiniteEffects] Disabled!");
+	}
+
+public functions onPlayerJoinEvent(Player $player, $joinMessage)
+  $player = $player->getPlayer()->getName();
+  if($this->config->exists($id.":".$meta)){
+	$effects = $this->config->get($id.":".$meta);
+	foreach ($effects as $effect) {
+    $player->addEffect(Effect::getEffect((int)$effect["effect"])->setAmplifier((int)$effect["amplifier"])->setDuration((int)$effect["duration"] * 20));
